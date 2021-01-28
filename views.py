@@ -43,11 +43,23 @@ def cruiserbikes(request):
 def adventure(request):
    return render(request, 'adventure.html')
 
+def touring(request):
+   return render(request, 'touring.html')  
+
+def scrambler(request):
+   return render(request, 'scrambler.html') 
+
+def caferacer(request):
+   return render(request, 'caferacer.html')
+
+def naked(request):
+   return render(request, 'naked.html')       
+
 def family(request):
    return render(request, 'family.html')   
 
-def bounvile(request):
-   return render(request, 'bounvile.html')
+def ducatiscrambler(request):
+   return render(request, 'ducatiscrambler.html')
 
 def hayabusa(request):
    return render(request, 'hayabusa.html')   
