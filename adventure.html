@@ -4,6 +4,75 @@
 
 {% block body%}
 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+{% comment %} CSS of social Links {% endcomment %}
+.fa {
+  padding: 15px;
+  font-size: 25px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 4px;
+  border-radius: 20px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+
+.fa-instagram {
+  background: #dc3545;
+  color: white;
+}
+
+
+.fa-dribbble {
+  background: #28a745;
+  color: white;
+}
+
+
+{% comment %} CSS of Top-button {% endcomment %}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  z-index: 99;
+  font-size: 20px;
+  border: black;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+#myBtn:hover {
+  background-color: white;
+}
+</style>
+</head>
+
+<body>
 {% comment %} here is our starting main carousel {% endcomment %}
 <body style="background-color:white;">
   <div id="carouselExampleControls" class="carousel slide-1 my=0"  data-ride="carousel">
@@ -20,9 +89,6 @@
   <div class="container my-3">
     <h1 class="my-2 text-center" style="color:red;font-size:3rem;font-family:bold;background-color:black">ADVENTURE-BIKES</h1> 
 </div>
-
-
-
 {% comment %} This section contain our bike(pics and description) section{% endcomment %}
 <div class="row">
        <div class="row">
@@ -149,7 +215,7 @@
     </div>
   </div>
 </div>           
-<a href="/privacy" class="px-5 row Privacy-link" style="color:yellow;font-size:1rem;background-color:black;">Privacy Policy--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Privacy-Policy</a>
+<a href="/privacy" class="px-5 row Privacy-link" style="color:yellow;font-size:1rem;background-color:black;">Privacy Policy</a>
                <!--  <input type="text" name="" placeholder="Enter your e-mail here" class="form-extreme">
                 <input type="submit" name="" class="submit-btn" value="Sign Up"> -->
               </div>
@@ -218,73 +284,10 @@
         </div>
       </div>
     </div>
-  </div>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-.fa {
-  padding: 15px;
-  font-size: 25px;
-  width: 55px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 4px;
-  border-radius: 20px;
-}
-
-.fa:hover {
-    opacity: 0.7;
-}
-
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-
-
-.fa-instagram {
-  background: #dc3545;
-  color: white;
-}
-
-
-.fa-dribbble {
-  background: #28a745;
-  color: white;
-}
+</div>
 
 
 
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-}
-
-#myBtn {
-  display: none;
-  position: fixed;
-  bottom: 30px;
-  right: 40px;
-  z-index: 99;
-  font-size: 20px;
-  border: black;
-  outline: none;
-  background-color: red;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 6px;
-}
-
-#myBtn:hover {
-  background-color: white;
-}
-</style>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <script>
 //Get the button
@@ -308,8 +311,8 @@ function topFunction() {
 }
 
 </script>    
+</body>
 </html>
-</head>
 
 
 
