@@ -1,0 +1,630 @@
+{% extends 'base.html'%}
+
+{% block title%}Ducati Scrambler ||{% endblock title%}
+
+{% block body%}
+<!doctype html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ <style type="text/css">
+    {% comment %} Social media css {% endcomment %}
+.fa {
+  padding: 15px;
+font-size: 25px;
+width: 55px;
+text-align: center;
+text-decoration: none;
+margin: 5px 4px;
+border-radius: 20px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+
+.fa-instagram {
+  background: #f8f9fa;
+  color: red;
+}
+
+
+.fa-dribbble {
+  background: #ea4c89;
+  color: white;
+}
+
+
+
+{% comment %} Top Button Css {% endcomment %}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  z-index: 99;
+  font-size: 20px;
+  border: black;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+
+{% comment %} css of our family button {% endcomment %}
+.button {
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+.button1 {background-color: red;} /* red */
+
+
+
+{% comment %} CSS OF HEIGHT WIDTH OF BIKE SHOWCASE container {% endcomment %}
+@media(min-width: 1500px){
+  .container-ex{
+    max-width: 1400px;
+    width: 100%;
+  }
+}
+
+
+{% comment %}IMAGE BLOCK(WHERE ALL IMAGES ARE PRESENT IN ONE CONTAINER) CSS  {% endcomment %}
+#extreme_carousel .controls li {
+  display: inline-block;
+  max-width: 143px;
+  overflow: hidden;
+  margin:4px;
+}
+#extreme_carousel .controls li a img{
+  width: 100%;
+  object-fit: cover;
+  height: 100px;
+}
+#extreme_carousel .controls li a img:hover{
+	opacity: 0.7;
+}
+#extreme_carousel .controls .nav{
+  background: #fff;
+  display: block;
+  text-align: center;
+}
+#extreme_carousel .controls li a{
+  padding: 2px 1px;
+  background: transparent;
+}
+#extreme_carousel .controls li.active {
+  background-color:transparent;
+}
+#extreme_carousel .controls a small {
+  overflow:hidden;
+  display:block;
+  font-size:10px;
+  margin-top:5px;
+  font-weight:bold
+}
+#extreme_carousel .carousel-control-prev,
+#extreme_carousel .carousel-control-next{
+	opacity: 1;
+	width: 30px;
+    height: 30px;
+    top: 0%;
+    margin: 22px;
+}
+#extreme_carousel .carousel-control-prev .fa,
+#extreme_carousel .carousel-control-next .fa{
+	background: #ed3237;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    padding-top: 7px;
+    font-size: 16px;
+}
+#extreme_carousel .carousel-item a img{
+	height:auto;
+	width: 100%;
+}
+.acatw-term-list {
+	margin-bottom: 0px;
+	margin-top: 30px;
+}
+.acatw-term-list{
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+
+{% comment %} BIKE DESCRIPTION LEFT SIDE ALL DESCRIPTION CSS {% endcomment %}
+/**SinglePage**/
+.bike-desription,
+.block-in-single{
+    background: #f3f3f3;
+    padding: 30px;
+    position: relative;
+}
+.single-side-right .nav-pills .nav-link {
+     border-radius: 0;
+    width: 50%;
+    padding: 14px;
+    color: #fff;
+    text-align: center;
+    background: #232628;
+}
+.single-side-right .nav-pills .nav-link:hover{
+	opacity: 0.7;
+}
+.single-side-right .nav-pills .nav-link.active, .single-side-right .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #ed3237;
+}
+.bike-desription .sold-out{
+	position: absolute;
+    top: 0;
+    right: 0;
+    background:#232628;
+    color: #fff;
+    z-index: 99;
+    opacity: 1;
+    padding: 4px 17px;
+}
+.bike-desription span.bike-category{
+	font-family: 'Black Vosten Personal Use';
+	 color: #879393;
+	 font-size: 50px;
+	 margin-bottom: 30px;
+}
+.bike-desription h5{
+	color: #232628;
+	font-size: 40px;
+}
+.bike-desription span.tag-quote{
+	color: #ed3237;
+	font-size: 15px;
+}
+.bike-desription p{
+	color:#879393;
+	font-size: 15px;
+	margin:1px 0;
+	line-height: 26px; 
+}
+.bike-desription span.price{
+	display: block;
+	color:  #ed3237;;
+	font-weight: bold;
+	font-size: 40px;
+	margin-bottom:0px;
+}
+
+</style>
+</head>
+
+<body>
+{% comment %} here is our starting main carousel {% endcomment %}
+<body style="background-color:white;">
+  <div id="carouselExampleControls" class="carousel slide-1 my=0"  data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://wallpapercave.com/wp/wp1942561.jpg" class="d-block w-100"  alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="font-size:8rem;font-family:bold;color:black">S C R A M B L E R</h5>
+          <p style="font-size:2.6rem;font-family:arial narrow bold;color:red"></p>
+        </div>
+      </div>       
+    </div> 
+  </div>  
+  <div class="container my-3">
+    <h1 class="my-2 text-center" style="color:red;font-size:5rem;font-family:bold;background-color:white">DUCATI SCRAMBLER</h1> 
+</div> 
+
+
+ {% comment %}this is carousel(bike images) and bike specification section{% endcomment %}
+<div class="wrapper-extreme">
+   <div class="container container-ex">
+      <div class="row">
+         <div class="col-lg-6 col-md-12">
+            <div class="bd-example">
+               <div id="extreme_carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
+                        
+                        <img width="1200" height="900" src="/static/1.jfif" class="img-fluid wp-post-image" alt="" srcset="/static/1.jfif 1200w, /static/1.jfif 300w, /static/1.jfif 768w, /static/1.jfif 1024w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px" />                       
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3378-F8FF520E-E44E-41D3-862B-71E4562EF137-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3379-90CC0B88-DAFB-4137-8DDF-32F903B53720-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3380-5EC378DD-B3DF-4831-8985-13BC66A89849-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3381-DB02AF4E-4D6D-49DE-8C44-B1A78EDF61FE-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3382-219C4F8E-D864-4FCE-B026-6802DD78C16D-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3383-37B14980-FF2D-4E01-8392-04FEBD8B74E4-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3384-848159C9-AAA7-4B20-9A8D-27997598BFE9-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3407-A189A5B5-B969-4D4B-8E5D-83EF84C28837-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3385-A35AFBE6-ACA7-4F62-9ACA-F4BA3251FDAF-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3386-76511973-E329-4CE9-900B-743B2E869FC9-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3387-2C97C317-CC06-4D67-825C-3A273DA2E626-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3388-23D5D9C9-7187-49A7-8DD2-189C1CA0A168-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3389-762536DA-038C-4B62-B279-5033A060E875-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3400-F492D016-356C-49D7-AA16-D26ED3A5ED33-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3391-F770CD70-163A-4737-B6C4-0E2E09E18347-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3390-0E5A1585-1738-4B03-BBB2-6AC54FE5E790-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3392-05F4252D-AA73-4A19-BBEF-D6B984A64E55-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3395-1AD81500-BB11-45DF-AC95-A08D08BE3B80-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3393-70D12755-7D77-4612-9CA0-9E4C880522FE-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3394-8F94178A-DF6A-4D1E-B301-20DE5DE4305A-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3396-379ABFFA-E2CB-43AE-A585-EF2ACB36371B-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3397-57C1FD5F-6441-4CD2-B811-8320952D33B2-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3398-30EF7AAE-DA91-45A8-AE3E-B2D144A8F113-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3399-316B72A7-5B28-4413-9B61-E476301095F0-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3401-DF6C5C6E-1A56-4C94-8D08-9B9F142E2736-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3402-9448EEB3-DFAB-4316-90E7-6C35C936BC26-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3403-3F769694-7590-43D7-ACC2-AA1F26DE62A3-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3404-BF80229B-3654-401C-9121-839236D7267C-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3405-1F232E0F-10A5-4138-9B7F-0BC1AC3B8D12-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                          <div class="carousel-item">
+                        <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3406-0FECE2E0-C97E-47A7-B653-96955569F873-1024x1024.jpeg" alt="" class="img-fluid"/>
+                     </div>
+                                       </div>
+                  <a class="carousel-control-prev" href="#extreme_carousel" role="button" data-slide="prev">
+                  <i class="fa fa-angle-left"></i>
+                  <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#extreme_carousel" role="button" data-slide="next">
+                  <i class="fa fa-angle-right"></i>
+                  <span class="sr-only">Next</span>
+                  </a>
+                  <div class="controls">
+                     <ul class="nav">
+                        <li data-target="#extreme_carousel" data-slide-to="0" class="active">
+                           <a href="">
+                           <img width="1200" height="900" src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/F8FF520E-E44E-41D3-862B-71E4562EF137-1200x900.jpeg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/F8FF520E-E44E-41D3-862B-71E4562EF137-1200x900.jpeg 1200w, http://extrememachinesdelhi.com/wp-content/uploads/2020/11/F8FF520E-E44E-41D3-862B-71E4562EF137-300x225.jpeg 300w, http://extrememachinesdelhi.com/wp-content/uploads/2020/11/F8FF520E-E44E-41D3-862B-71E4562EF137-768x576.jpeg 768w, http://extrememachinesdelhi.com/wp-content/uploads/2020/11/F8FF520E-E44E-41D3-862B-71E4562EF137-1024x768.jpeg 1024w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px" />                           </a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="1"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3378-F8FF520E-E44E-41D3-862B-71E4562EF137-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="2"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3379-90CC0B88-DAFB-4137-8DDF-32F903B53720-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="3"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3380-5EC378DD-B3DF-4831-8985-13BC66A89849-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="4"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3381-DB02AF4E-4D6D-49DE-8C44-B1A78EDF61FE-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="5"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3382-219C4F8E-D864-4FCE-B026-6802DD78C16D-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="6"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3383-37B14980-FF2D-4E01-8392-04FEBD8B74E4-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="7"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3384-848159C9-AAA7-4B20-9A8D-27997598BFE9-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="8"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3407-A189A5B5-B969-4D4B-8E5D-83EF84C28837-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="9"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3385-A35AFBE6-ACA7-4F62-9ACA-F4BA3251FDAF-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="10"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3386-76511973-E329-4CE9-900B-743B2E869FC9-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="11"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3387-2C97C317-CC06-4D67-825C-3A273DA2E626-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="12"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3388-23D5D9C9-7187-49A7-8DD2-189C1CA0A168-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="13"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3389-762536DA-038C-4B62-B279-5033A060E875-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="14"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3400-F492D016-356C-49D7-AA16-D26ED3A5ED33-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="15"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3391-F770CD70-163A-4737-B6C4-0E2E09E18347-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="16"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3390-0E5A1585-1738-4B03-BBB2-6AC54FE5E790-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="17"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3392-05F4252D-AA73-4A19-BBEF-D6B984A64E55-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="18"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3395-1AD81500-BB11-45DF-AC95-A08D08BE3B80-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="19"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3393-70D12755-7D77-4612-9CA0-9E4C880522FE-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="20"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3394-8F94178A-DF6A-4D1E-B301-20DE5DE4305A-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="21"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3396-379ABFFA-E2CB-43AE-A585-EF2ACB36371B-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="22"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3397-57C1FD5F-6441-4CD2-B811-8320952D33B2-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="23"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3398-30EF7AAE-DA91-45A8-AE3E-B2D144A8F113-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="24"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3399-316B72A7-5B28-4413-9B61-E476301095F0-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="25"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3401-DF6C5C6E-1A56-4C94-8D08-9B9F142E2736-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="26"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3402-9448EEB3-DFAB-4316-90E7-6C35C936BC26-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="27"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3403-3F769694-7590-43D7-ACC2-AA1F26DE62A3-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="28"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3404-BF80229B-3654-401C-9121-839236D7267C-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="29"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3405-1F232E0F-10A5-4138-9B7F-0BC1AC3B8D12-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                        <li data-target="#extreme_carousel" data-slide-to="30"><a href="#">
+                           <img src="http://extrememachinesdelhi.com/wp-content/uploads/2020/11/3406-0FECE2E0-C97E-47A7-B653-96955569F873-1024x1024.jpeg" alt="Ducati Scrambler Icon 800"/></a>
+                        </li>
+                                                                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+          <div class="col-lg-6 col-md-12 single-side-right">
+           <h1 class="text-center" style="color:black;font-size:2rem;background-color:red;font-family:bold;font-style:italic;">Bike Details</h1>
+            <div class="tab-content" id="v-pills-tabContent">
+               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                  <div class="bike-desription">
+                     <span class="bike-category">
+                     Adventure Cafe Racer/Classic                      </span>
+                     <h5>Ducati Scrambler Icon 800</h5>
+                     <span class="tag-quote"></span>
+                     <span class="price">5.99 Lakh</span>
+                      
+                     <p>Registered 2017<br />
+Manufacturing 2016<br />
+Pampered 6000 km only<br />
+Yellow Colour<br />
+DL Registration<br />
+Single Owner<br />
+Full Insurance<br />
+Till September 2021<br />
+New Rear Break-pads<br />
+General Checkup Done Recently<br />
+Immaculate inside out<br />
+Both Keys</p>
+<p>Accessoires-</p>
+<p>Termignoni Exhaust<br />
+Puig Frame Sliders</p>
+<p>E M D price  :  5.99 Lakh</p>
+<p>Location : east delhi.</p>
+<p>Finance available for Pan India (*t&#038;c apply)</p>
+<p>Delivery option available all over India at Additional cost and professional packaging.</p>
+<p>Our Website<br />
+www.extrememachinesdelhi.com<br />
+www.extrememachinesdelhi.in</p>
+<p>Our Facebook page<br />
+https://www.facebook.com/Extrememachinesdelhi/</p>
+<p>Our Instagram page<br />
+https://instagram.com/extrememachinesdelhi_official</p>
+<p>Our YouTube channel<br />
+Extreme Machines Delhi</p>
+<p>9810372464<br />
+Prince Raj Kapoor.<br />
+Extreme Machines Delhi.</p>
+<p>8700648901<br />
+Guneet Singh.<br />
+Extreme Machines Delhi.</p>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+
+ {% comment %} /here is our brandsection & footer coding {% endcomment %}
+  <div class="brands-section">
+  <div class="my-4 container container-ex">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <img src="http://extrememachinesdelhi.com/wp-content/themes/extrememachines/img/brands-logo.png" class="img-fluid" alt="brands-logo">
+      </div>
+    </div>
+  </div>
+</div>           
+<a href="/privacy" class="px-5 row Privacy-link" style="color:yellow;font-size:1rem;background-color:black;">Privacy Policy</a>
+               <!--  <input type="text" name="" placeholder="Enter your e-mail here" class="form-extreme">
+                <input type="submit" name="" class="submit-btn" value="Sign Up"> -->
+              </div>
+            </div>
+        </div>       
+        <div class=" row" style="background-color:black;">
+          <div class="px-4 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-xs-12" style="background-color:black;">
+            <h5 class="text-center" style="background-color:white;" style="font-size:1.5rem;">About Us</h5>
+            <p style="background-color:white;">we at bike factory delhi take care of your dream to full fill in a decent manner,we take care to prvide best loving machine...   <a href="/about">READ MORE</a></p>
+          </div>
+          <div class="px-1 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-xs-12";>
+            <h5 class="text-center" style="background-color:white;" style="font-size:1.5rem;">Quick Links</h5>
+            <ul>
+              <li  style="background-color:white;"  style="color:black;font-size:1rem;"><a href="/">Home</a></li>
+              <li style="background-color:white;" style="color:black;font-size:1rem;"><a href="/about">About Us</a></li>
+              <li style="background-color:white;" style="color:black;font-size:1rem;"><a href="/sportbikes">Sportbikes</a></li>
+              <li style="background-color:white;" style="color:black;font-size:1rem;"><a href="/cruiserbikes">Cruiserbikes</a></li>
+              <li style="background-color:white;" style="color:black;font-size:1rem;"><a href="/otherbikes">Otherbikes</a></li>
+            </ul>
+          </div>
+          <div class="px-3 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-xs-12"> 
+            <h5 class="text-center" style="background-color:white;" style="font-size:1.5rem;">Customer Services</h5>
+            <ul>
+              <li style="background-color:white;" style="color:black;font-size:1rem;"><a href="/contact">Contact</a></li>
+              <li style="background-color:white;" style="color:black;font-size:1rem;"><a href="mailto:bikefactorydelhi@gmail.com"><i class="fa fa-envelope"></i>bikefactorydelhi@gmail.com</a></li>
+            </ul>
+          </div>
+          <div class="px-4 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-xs-12" >
+            <h5 class="text-center" style="background-color:white;" style="font-size:1.5rem;">Contact Info</h5>
+            <address style="background-color:white;">
+              B-62/7 Naraina Industrial Area,<br>  
+              Phase-2, Naraina,<br>  
+              Delhi 110028
+            </address>
+            <ul>
+              <li style="background-color:white;" style="font-size:1.2rem;">Robin(CEO) : <a href="tel:+918800763373">+91 8800763373</a></li>
+              <li style="background-color:white;" style="font-size:1.2rem;">MD Azam(Sales-Executive) :<a href="tel:+918800210410"> +91 8800210410</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <div class="px-5copyright-section" style = "background-color:black;">
+      <div class="container container-ex" style="background-color:black;">
+        <div class="row"  >
+          <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12" >
+            <div class="footer-logo text-center" >
+              <img src="data:image/png;base64,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" class="img-fluid" height="180px" width="165px">
+            </div>    
+          </div>
+          <div class="col-xl-10 col-lg-9 col-md-12 col-sm-12" > 
+            <div class="divide-bottom-third" >
+              <p style="background-color:white;">© Copyright Bike  &nbsp;&nbsp;|&nbsp;&nbsp;All Trademarks and Brands are the property of their respective owners</p>
+              <p style="background-color:white;">All Rights Reserved Website Designed and Developed By: <a href="Javascript:void(0)">MD AZAM KHAN(azam.saifies@gmail.com)</a></p>
+            </div>
+            <div class="divide-bottom-third" >
+              <ul class="px-5social-icons" >
+               <a href="https://www.facebook.com/dealsinpreownedbikes/" target="-blank" rel="noopener" class="fa fa-facebook"></a>
+               <a href="https://www.instagram.com/bikefactory_delhi/" target="-blank" rel="noopener" class="fa fa-instagram"></a>
+               <a style="background-color:green;color:white;" href="https://api.whatsapp.com/send?phone=+918800763373&amp;text=hello bike Factory delhi." target="-blank" rel="noopener" class="fa fa-whatsapp" aria-hidden="true"></a>
+               <a style="background-color:red;color:white;" href="tel:+918800763373" target="-blank" rel="noopener" class="fa fa-phone"></a> 
+               <a style="background-color:blue;color:red;" href="https://www.google.com/maps/dir/28.4950528,77.2243456/bike+factory+delhi+map+location/@28.5736198,77.1174163,12z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x390d03a348413f57:0xfff6303fdd443406!2m2!1d77.1468948!2d28.6456288" target="-blank" rel="noopener" class="fa fa-map-marker"></a>                
+                </ul>                                          
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 70px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+<html>    
+
+
+
+
+
+
+
+
+{% endblock body%}    
